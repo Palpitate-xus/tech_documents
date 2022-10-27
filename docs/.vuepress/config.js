@@ -1,15 +1,15 @@
 module.exports = {
-    title: 'Hello VuePress',
+    title: 'Palpitate\'s Blog',
     description: 'Just playing around',
     base: '/blog/',
+    theme: 'reco',
     themeConfig: {
       nav: [
           { text: '首页', link: '/' },
           { 
-              text: 'Palpitate\'s Blog', 
+              text: 'Link', 
               items: [
-                  { text: 'Github', link: 'https://github.com/mqyqingfeng' },
-                  { text: '掘金', link: 'https://juejin.cn/user/712139234359182/posts' }
+                  { text: 'Github', link: 'https://github.com/Pola-ris' },
               ]
           }
       ]
