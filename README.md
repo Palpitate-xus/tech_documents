@@ -1,3 +1,3 @@
-# blog
+# tech documents
 
-A blog of Pola-ris
+a piece of tech documents written by Palpitate
