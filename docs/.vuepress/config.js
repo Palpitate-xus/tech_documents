@@ -1,10 +1,12 @@
 module.exports = {
-    title: 'Palpitate\'s Blog',
+    title: 'Palpitate\'s Documents',
     description: 'Just playing around',
-    base: '/blog/',
+    base: '/tech_documents/',
     theme: 'reco',
     themeConfig: {
+      type: 'blog',
       subSidebar: 'auto', //在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
+      authorAvatar: '/home.png',
     },
     themeConfig: {
       nav: [
