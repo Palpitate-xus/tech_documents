@@ -1,30 +1,32 @@
-name: deploy after push
+name: Deploy GitHub Pages
+
+# 触发条件：在 push 到 master 分支后
 on:
-  [push]
+  push:
+    branches:
+      - master
+
+# 任务
 jobs:
-  deploy:
+  build-and-deploy:
+    # 服务器环境：最新版 Ubuntu
     runs-on: ubuntu-latest
     steps:
+      # 拉取代码
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v3
-        id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          persist-credentials: false
 
-      - name: Install dependencies
-        run: yarn --prefer-offline
-        
-      - name: Run deploy.sh
-        env:
+      # 生成静态文件
+      - name: Build
+        run: npm install && npm run build
+
+      # 部署到 GitHub Pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-        run: yarn deploy
+          FOLDER: docs/.vuepress/dist
 
