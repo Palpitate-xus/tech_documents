@@ -4,7 +4,6 @@ module.exports = {
     base: '/tech_documents/',
     theme: 'reco',
     themeConfig: {
-      type: 'blog',
       subSidebar: 'auto', //在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
       authorAvatar: '/home.png',
     },
